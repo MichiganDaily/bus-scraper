@@ -140,4 +140,6 @@ const output = {
   preds,
 };
 
-fs.appendFile('scrape.jsonl', JSON.stringify(output))
+fs.appendFile("scrape.jsonl", JSON.stringify(output), (err) => {
+  if (err) console.log(err);
+});
