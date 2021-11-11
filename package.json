@@ -1,0 +1,9 @@
+{
+  "name": "bus-scraper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "repository": "git@github.com:naitian/bus-scraper.git",
+  "author": "Naitian Zhou <naitian@naitian.org>",
+  "license": "MIT"
+}
