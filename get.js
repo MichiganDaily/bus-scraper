@@ -121,7 +121,7 @@ const stops = [
   "M321",
 ];
 
-if (true) {
+if (false) {
   const routes = (
     await fetch(
       `https://mbus.ltp.umich.edu/bustime/api/v3/getroutes?key=${KEY}&format=json`
@@ -182,7 +182,7 @@ for (let i = 0; i < stops.length; i += stops.length / 6) {
   predictions.push(await getPredictions(chunk));
 }
 
-const errors = d3.merge(predictions.map((d) => d.error));
+const errors = d3.merge(predictions.map((d) => d.error || []));
 const preds = d3.merge(predictions.map((d) => d.prd || []));
 
 const output = {
@@ -191,6 +191,6 @@ const output = {
   preds,
 };
 
-fs.appendFile("scrape.jsonl", JSON.stringify(output), (err) => {
+fs.appendFile("scrape.ndjson", JSON.stringify(output) + "\n", (err) => {
   if (err) console.log(err);
 });
